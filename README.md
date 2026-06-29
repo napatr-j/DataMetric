@@ -4,3 +4,5 @@ A web-based social media analytics platform that enables users to securely scrap
 # How to run
 1. Create .env file
 2. Add "AIRFLOW_UID=50000" to .env file
+3. Open the terminal
+4. Type "docker-compose up" to create the docker container on your computer
