@@ -49,8 +49,8 @@ x-airflow-common:
   # In order to add custom dependencies or upgrade provider distributions you can use your extended image.
   # Comment the image line, place your Dockerfile in the directory where you placed the docker-compose.yaml
   # and uncomment the "build" line below, Then run `docker-compose build` to build the images.
-  image: ${AIRFLOW_IMAGE_NAME:-apache/airflow:3.2.2}
-  # build: .
+  # image: ${AIRFLOW_IMAGE_NAME:-apache/airflow:3.2.2}
+  build: .
   env_file:
     - ${ENV_FILE_PATH:-.env}
   environment:
@@ -74,6 +74,8 @@ x-airflow-common:
     # WARNING: Use _PIP_ADDITIONAL_REQUIREMENTS option ONLY for a quick checks
     # for other purpose (development, test and especially production usage) build/extend Airflow image.
     _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:-}
+    # ── YouTube scraper ──────────────────────────────────────────────────────
+    YOUTUBE_ACCOUNT: ${YOUTUBE_ACCOUNT:-}
     # ── Gold price scraper — Google Sheets integration ───────────────────────
     GOOGLE_SHEET_ID: ${GOOGLE_SHEET_ID:-}
     GOOGLE_SERVICE_ACCOUNT_JSON: /opt/airflow/secrets/google-service-account.json
